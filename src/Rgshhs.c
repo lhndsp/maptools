@@ -98,7 +98,7 @@ SEXP Rgshhs(SEXP fn, SEXP mode, SEXP dolim, SEXP lim, SEXP level, SEXP minarea)
 	fp = fopen (CHAR(STRING_ELT(fn, 0)), "rb");
 	if (fp == NULL ) {
 		snprintf(msg, sizeof(msg), "Could not find file %s", CHAR(STRING_ELT(fn, 0)));
-		error(msg);
+		error("%s", msg);
 
 	}
 
@@ -338,7 +338,7 @@ SEXP Rgshhs(SEXP fn, SEXP mode, SEXP dolim, SEXP lim, SEXP level, SEXP minarea)
 			"Error reading file %s for %s %d, point %d.\n", 
 			CHAR(STRING_ELT(fn, 0)), name[line], 
 			INTEGER_POINTER(VECTOR_ELT(res, 0))[j], k);
-					error(msg);
+					error("%s", msg);
 			    }
 /*			    if (flip) {*/
 				swapb (&p.x, sizeof(int));
